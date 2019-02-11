@@ -6,5 +6,19 @@ pipeline {
                 sh 'echo "Hello World"'
             }
         }
+        stage ('Test') {
+            parallel {
+                stage ('Chrome') {
+                    steps {
+                        sh 'echo "Chrome"'
+                    }
+                }
+                stage ('Firefox') {
+                    steps {
+                        sh 'echo "Firefox"'
+                    }
+                }
+            }
+        }
     }
 }
